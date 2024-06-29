@@ -5,7 +5,7 @@ require("dotenv").config();
 const PORT = process.env.PORT;
 const connection = require("./config/db");
 const authRoute = require("./routes/authRoute");
-const taskRoute = require("./routes/taskroute");
+const taskRoute = require("./routes/taskRoute");
 
 app.use(express.json());
 app.use(cors());
