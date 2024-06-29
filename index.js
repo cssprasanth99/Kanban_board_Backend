@@ -8,7 +8,14 @@ const authRoute = require("./routes/authRoute");
 const taskRoute = require("./routes/taskRoute");
 
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+  origin: "http://127.0.0.1:5173/", // Allow only this origin
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Allow these methods
+  credentials: true, // Allow credentials
+  optionsSuccessStatus: 204, // Some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {
   res.send("Hi");
